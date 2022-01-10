@@ -36,4 +36,4 @@ jobs:
           echo test, and deploy your project.
 
       - name: Local Composite Action Sample
-        uses: ./hw-action@main
+        uses: ./hw-action
