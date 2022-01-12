@@ -1,0 +1,20 @@
+name: Call me
+on:
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        description: 'Person to greet'
+        default: 'World'
+        required: true
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Send greetings
+      run: |
+        echo "Hello imput parameter: ${{ github.event.inputs.name }}"
+        echo "Hello secret: ${{ secrets.name }}"
