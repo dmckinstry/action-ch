@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ${{ env.pythonLocation }}
+          path: /usr/lib/python3/dist-packages
           key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
 
       - name: Fun with PIP
