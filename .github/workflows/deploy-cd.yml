@@ -1,3 +1,5 @@
+name: deploy-cd
+
 on:
   workflow_run:
     workflows: [build]
@@ -6,6 +8,10 @@ on:
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-    - run: echo I ran!
+    - run: |
+        echo Build succeeded - triggering deploy
+
+        echo Artifact is at: ${{ github.event.workflow_run.artifact_url }}
