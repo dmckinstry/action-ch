@@ -1,0 +1,11 @@
+on:
+  workflow_run:
+    workflows: [build-ci]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo I ran!
