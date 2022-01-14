@@ -14,4 +14,4 @@ jobs:
     - run: |
         echo Build succeeded - triggering deploy
 
-        echo Artifact is at: ${{ github.event.workflow_run.artifact_url }}
+        echo Artifact is at: ${{ github.event.workflow_run.artifacts_url }}
