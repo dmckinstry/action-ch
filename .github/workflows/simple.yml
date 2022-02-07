@@ -8,30 +8,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Setup Python
-      #   uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.9.9'
-      #     architecture: 'x64'
+#       - name: Setup Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.9.9'
+#           architecture: 'x64'
 
-      - uses: actions/cache@v2
-        with:
-          path: /usr/lib/python3/dist-packages
-          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+#       - uses: actions/cache@v2
+#         with:
+#           path: /usr/lib/python3/dist-packages
+#           key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
 
-      - name: Fun with PIP
-        shell: bash
-        run: |
-          pip3 install -r requirements.txt
-          # pip3 cache dir
-          # ls `pip3 cache dir`
+#       - name: Fun with PIP
+#         shell: bash
+#         run: |
+#           pip3 install -r requirements.txt
+#           # pip3 cache dir
+#           # ls `pip3 cache dir`
 
-      # - name: Local Composite Action Sample
-      #   uses: ./hw-action
+#       - name: Local Composite Action Sample
+#         uses: ./hw-action
     
-  # call_reuse:
-  #   uses: dmckinstry/action-ch/.github/workflows/reuse.yml@main
-  #   with:
-  #     name: passed-in
+  call_reuse:
+    needs: [ build ]
+    uses: dmckinstry/action-ch/.github/workflows/reuse.yml@main
+    with:
+      name: passed-in
       
 
