@@ -1,8 +1,8 @@
-name: deploy-cd
+name: CD Deploy (Chain)
 
 on:
   workflow_run:
-    workflows: [build]
+    workflows: [CI Build (Chain)]
     types:
       - completed
 
