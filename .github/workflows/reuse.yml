@@ -6,7 +6,7 @@ on:
         type: string
         required: true
     secrets:
-      name:
+      secretname:
         required: false
 
 jobs:
@@ -16,5 +16,6 @@ jobs:
     steps:
     - name: Send greetings
       run: |
-        echo "Hello imput parameter: ${{ github.event.inputs.name }}"
-        echo "Hello secret: ${{ secrets.name }}"
+        echo "Hello imput parameter: ${{ github.inputs.name }}"
+        echo "Hello secret: ${{ secrets.secretname }}"
+        echo "Running in repo ${{ github.repository }}"
