@@ -1,4 +1,4 @@
-name: build
+name: CI Build (Chain)
 on:
 #   push:
 #     branches: [ main ]
